@@ -1,27 +1,64 @@
 import React from "react";
-import App from "../App";
+// import App from "../App";
 let panier = [];
 let articles = ["pinceau", "toile", "fusain"];
+let argent = 20;
 
 
 class Articles extends React.Component{
-
+     
      ajouterPanier = (e) =>{
-          //  Push objet dans panier
-          e.target = panier.push(e.target.parentElement.innerText)
-          console.log(panier)
-          // split tableau objet 
-          //if objet est pinceau retirer 5 euros ...
-          if()
+          
+         
+          if(e.target.parentElement.innerText == "Pinceau 3€acheter"){
+
+          
+          panier.push(e.target.parentElement.innerText)
+           console.log(panier)
+
+           articles.splice(articles.indexOf("pinceau"),1)
+       
+           console.log(articles)
+
+           argent -= 3;
+           console.log(argent)
+
+
+              
+
+          }else if(e.target.parentElement.innerText == "Toile 13€acheter"){
+               panier.push(e.target.parentElement.innerText)
+               console.log(panier)
+    
+               articles.splice(articles.indexOf("toile"),1)
+           
+               console.log(articles)
+    
+               argent -= 13;
+               console.log(argent)
+          }else if(e.target.parentElement.innerText == "Fusain 4€acheter"){
+
+               panier.push(e.target.parentElement.innerText)
+               console.log(panier)
+    
+               articles.splice(articles.indexOf("fusain"),1)
+           
+               console.log(articles)
+    
+               argent -= 4;
+               console.log(argent)
+          }
+
+
      }
 
      render(){
           return(
                <div>
           <ul>
-               <li>Pinceau <button onClick={this.ajouterPanier}>acheter</button></li>
-               <li>Toile <button onClick={this.ajouterPanier}>acheter</button></li>
-               <li>Fusain <button onClick={this.ajouterPanier} >acheter</button></li>
+               <li>Pinceau 3€<button onClick={this.ajouterPanier}>acheter</button></li>
+               <li>Toile 13€<button onClick={this.ajouterPanier}>acheter</button></li>
+               <li>Fusain 4€<button onClick={this.ajouterPanier} >acheter</button></li>
           </ul>
      </div>
           
@@ -30,4 +67,6 @@ class Articles extends React.Component{
 
 }    
 
+
 export default Articles;
+
